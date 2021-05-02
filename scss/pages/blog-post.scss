@@ -7,6 +7,63 @@ body.blog-post {
     line-height: 1.6em;
   }
 
+  .header {
+    background-color: $secondary;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .canvas {
+    background: $secondary;
+    box-shadow: $canvas-shadow;
+    padding: 1em;
+    border-radius: 4px;
+  }
+
+  .comment-container {
+    display: flex;
+    flex-direction: column;
+    width: 62em;
+
+    .comment-user {
+      color: $primary-high;
+      text-transform: capitalize;
+      font-size: $font-down-1;
+      margin: 6px 0 10px 0;
+    }
+
+    .comment {
+      padding: 10px 0;
+      margin-left: 1em;
+      word-wrap: break-word;
+      word-break: break-word;
+      border-bottom: 1px solid $primary-low;
+
+      .comment-content {
+        margin-left: 50px;
+      }
+    }
+
+    .comment-avatar {
+      float: left;
+    }
+
+    .img-avatar {
+      border-radius: 50%;
+    }
+
+    .comment-heading {
+      border-bottom: 2px solid $primary-low;
+      color: $primary-high;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .container {
+    margin-top: 10em;
+  }
+
   blockquote {
     padding: 12px;
     font-style: italic;
@@ -27,7 +84,7 @@ body.blog-post {
 
   .title {
     color: $primary;
-    padding: 2.5em 0 0;
+    padding: .5em;
     font-size: 3.2em;
     font-weight: 700;
     letter-spacing: -.015em;
@@ -38,7 +95,6 @@ body.blog-post {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.312em 0 3.125em 0;
   }
 
   .excerpt {
@@ -106,6 +162,8 @@ body.blog-post {
 
   .content {
     word-spacing: 0.25em;
+    display: flex;
+    flex-direction: column;
   }
 
   .user-top img {
@@ -118,4 +176,44 @@ body.blog-post {
       width: 85%;
     }
   }
+}
+
+.comment-footer {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  line-height: 40px;
+  border-radius: 4px;
+  padding: 8px;
+  width: 190px;
+  transition: all 0.5s;
+  background-color: $tertiary;
+
+  a {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    color: $secondary;
+    font-weight: bold;
+  }
+
+  a:after {
+    content: '»';
+    position: absolute;
+    top: 0;
+    right: -14px;
+    transition: 0.5s;
+  }
+  .btn-comment {
+    color: $secondary;
+  }
+}
+
+.comment-footer:hover a {
+  padding-right: 25px;
+}
+
+.comment-footer:hover a:after {
+  opacity: 1;
+  right: 0;
 }
