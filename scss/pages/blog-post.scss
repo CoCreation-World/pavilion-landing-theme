@@ -32,7 +32,7 @@ body.blog-post {
       margin: 6px 0 10px 0;
     }
 
-    .comment {
+    div.comment {
       padding: 10px 0;
       margin-left: 1em;
       word-wrap: break-word;
@@ -41,6 +41,10 @@ body.blog-post {
 
       .comment-content {
         margin-left: 50px;
+      }
+      
+      &:last-of-type {
+        border-bottom: none;
       }
     }
 
@@ -179,41 +183,17 @@ body.blog-post {
 }
 
 .comment-footer {
-  margin-top: 15px;
-  margin-bottom: 10px;
-  line-height: 40px;
-  border-radius: 4px;
-  padding: 8px;
-  width: 190px;
-  transition: all 0.5s;
-  background-color: $tertiary;
+  margin: 3em 0;
 
-  a {
+  a.btn.btn-primary {
+    @include button-hover;
+    
+    z-index: 2;
     cursor: pointer;
     display: inline-block;
     position: relative;
-    transition: 0.5s;
-    color: $secondary;
     font-weight: bold;
+    padding: 12px 18px;
+    font-size: 1.1em;
   }
-
-  a:after {
-    content: '»';
-    position: absolute;
-    top: 0;
-    right: -14px;
-    transition: 0.5s;
-  }
-  .btn-comment {
-    color: $secondary;
-  }
-}
-
-.comment-footer:hover a {
-  padding-right: 25px;
-}
-
-.comment-footer:hover a:after {
-  opacity: 1;
-  right: 0;
 }
