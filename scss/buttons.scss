@@ -37,3 +37,36 @@ label.highlight {
   padding: 3px 6px;
   cursor: pointer;
 }
+
+@mixin button-hover {
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $tertiary;
+    z-index: -2;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken($tertiary, 15%);
+    transition: all .3s;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: $secondary;
+
+    &:before {
+      width: 100%;
+    }
+  }
+}

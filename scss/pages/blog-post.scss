@@ -7,6 +7,67 @@ body.blog-post {
     line-height: 1.6em;
   }
 
+  .header {
+    background-color: $secondary;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .canvas {
+    background: $secondary;
+    box-shadow: $canvas-shadow;
+    padding: 1em;
+    border-radius: 4px;
+  }
+
+  .comment-container {
+    display: flex;
+    flex-direction: column;
+    width: 62em;
+
+    .comment-user {
+      color: $primary-high;
+      text-transform: capitalize;
+      font-size: $font-down-1;
+      margin: 6px 0 10px 0;
+    }
+
+    div.comment {
+      padding: 10px 0;
+      margin-left: 1em;
+      word-wrap: break-word;
+      word-break: break-word;
+      border-bottom: 1px solid $primary-low;
+
+      .comment-content {
+        margin-left: 50px;
+      }
+      
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+
+    .comment-avatar {
+      float: left;
+    }
+
+    .img-avatar {
+      border-radius: 50%;
+    }
+
+    .comment-heading {
+      border-bottom: 2px solid $primary-low;
+      color: $primary-high;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .container {
+    margin-top: 10em;
+  }
+
   blockquote {
     padding: 12px;
     font-style: italic;
@@ -27,7 +88,7 @@ body.blog-post {
 
   .title {
     color: $primary;
-    padding: 2.5em 0 0;
+    padding: .5em;
     font-size: 3.2em;
     font-weight: 700;
     letter-spacing: -.015em;
@@ -38,7 +99,6 @@ body.blog-post {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.312em 0 3.125em 0;
   }
 
   .excerpt {
@@ -106,6 +166,8 @@ body.blog-post {
 
   .content {
     word-spacing: 0.25em;
+    display: flex;
+    flex-direction: column;
   }
 
   .user-top img {
@@ -117,5 +179,21 @@ body.blog-post {
     .content {
       width: 85%;
     }
+  }
+}
+
+.comment-footer {
+  margin: 3em 0;
+
+  a.btn.btn-primary {
+    @include button-hover;
+    
+    z-index: 2;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    padding: 12px 18px;
+    font-size: 1.1em;
   }
 }
