@@ -46,40 +46,28 @@ body.blog {
     }
   }
 
-  .post-feed {
+  .topic-list {
     position: relative;
     display: grid;
-    grid-gap: 4vmin;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 15vmin 0 0 0;
-  }
-
-  @media (max-width: 1000px) {
-    .post-feed {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .post-feed {
-      grid-template-columns: 1fr;
-      grid-gap: 2.5em;
-    }
+    grid-gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    padding: 7em 0 0 0;
   }
 
   .topic-list-item {
     position: relative;
-    flex: 1 1 18.75em;
     display: flex;
     flex-direction: column;
-    min-height: 13.75em;
-    background-size: cover;
-    border: 0.0625em solid rgba(34, 34, 34, 0.15);
-    border-radius: 0.25em;
-    padding: 1.3em;
 
-    &:hover {
-      box-shadow: $item-shadow;
+    .contents {
+      border: 1px solid $primary-low;
+      border-radius: 0.25em;
+      padding: 1.3em;
+      background-color: $secondary;
+  
+      &:hover {
+        box-shadow: $item-shadow;
+      }
     }
   }
 
@@ -88,6 +76,7 @@ body.blog {
     display: block;
     overflow: hidden;
     border-radius: 0.18em;
+    height: 200px;
 
     img {
       width: 100%;
@@ -143,45 +132,16 @@ body.blog {
     padding: 0;
   }
 
-  .topic-byline {
-    display: flex;
-    margin: 0 0 0 0;
-    color: $primary-high;
-    padding-top: 0.8em;
-    line-height: 1.2em;
-    font-weight: 400;
-    width: 100%;
-
-    .author {
-      width: auto;
-    }
-
-    .bull {
-      display: inline-block;
-      margin: 0 .1em;
-      opacity: 0.6;
-      padding: 0 .2em 0 .2em;
-      line-height: 1.9em;
-    }
-
-    .date {
-      line-height: 1.9em;
-      font-size: 0.8em;
-      margin-top: 0.4em;
-    }
-
-    span {
-      margin: 0;
-    }
-  }
-
-  @media (min-width: 1001px) {
-    .post-large {
+  @media (min-width: 1000px) {
+    .topic-list article:first-of-type {
       grid-column: 1 / span 3;
-      display: grid;
-      grid-gap: 4vmin;
-      grid-template-columns: 1fr 1fr 1fr;
       min-height: 17.5em;
+
+      .contents {
+        display: grid;
+        grid-gap: 4vmin;
+        grid-template-columns: 1fr 1fr;
+      }
 
       .title {
         margin-top: 0;
@@ -201,9 +161,10 @@ body.blog {
 
       .topic-image {
         position: relative;
-        grid-column: 1 / span 2;
         margin-bottom: 0;
+        height: 100%;
         min-height: 23.75em;
+
         img {
           position: absolute;
           width: 100%;
@@ -211,14 +172,6 @@ body.blog {
         }
       }
     }
-
-    .post-large:not(.no-image) .header {
-      margin-top: 0;
-    }
-  }
-
-  .user-top img {
-    margin-right: 1em;
   }
 
   @media (max-width: 500px) {
@@ -228,156 +181,6 @@ body.blog {
 
     .excerpt {
       font-size: 1.2rem;
-    }
-  }
-}
-
-.subscribe {
-  @include button-hover;
-
-  position: fixed;
-  z-index: 2;
-  bottom: 2em;
-  display: flex;
-  align-items: center;
-  right: 1.75em;
-  box-shadow: shadow("card");
-  border-radius: 3em;
-  background: $tertiary;
-  padding: 0.6em;
-  cursor: pointer;
-  color: $primary-very-low;
-  overflow: hidden;
-
-  .subscribe-avatar {
-    border-radius: 50%;
-    vertical-align: sub;
-  }
-
-  .subscribe-label {
-    float: right
-  }
-
-  .subscribe-user {
-    padding: 0.1em 0 0 0.4em
-  }
-
-  .subscribe-icon {
-    display: flex;
-    align-items: center;
-
-    svg {
-      width: 35px;
-      height: 35px;
-      fill: $secondary;
-    }
-  }
-
-  .subscribe-icon,
-  .subscribe-avatar {
-    margin-right: .5em;
-  }
-}
-
-.subscribe-modal {
-  display: none;
-
-  &.active {
-    visibility: visible;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    background-color: rgba(0,0,0,0.4);
-  }
-
-  .subscribe-modal-content {
-    background: $primary-very-low;
-    padding: 2em;
-    position: relative;
-    margin: auto;
-    box-shadow: shadow("modal");
-    border-radius: 0.3em;
-    width: 30em;
-    max-width: 90%;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-
-    .subscribe-modal-close {
-      cursor: pointer;
-      fill: $primary-low-mid;
-
-      svg {
-        height: 1em;
-        width: 1em;
-
-        &:hover,
-        &:focus {
-          text-decoration: none;
-          cursor: pointer;
-          fill: $primary-high;
-        }
-      }
-    }
-
-    .checkbox {
-      float: right;
-      height: 1.3em;
-      width: 1.3em;
-    }
-
-    .subscribe-buttons {
-      padding-top: 0.6em;
-      border-top: 0.06em solid $primary-low;
-
-      .btn-subscribe {
-        padding: 9px 13px;
-        border: 1px solid $primary-low;
-        transition: 0.7s;
-
-        &:hover,
-        &:focus {
-          color: $secondary;
-          box-shadow: inset 0 0 0 2em $tertiary-high;
-        }
-      }
-
-      a.subscribe-cancel-link {
-        margin: .7em;
-        cursor: pointer;
-        color: $secondary-medium;
-        &:hover {
-          color: $primary;
-        }
-      }
-    }
-
-    .subscribe-checkbox {
-      margin-bottom: 1.3em;
-      margin-top: 1.3em;
-    }
-
-    .modal-header {
-      border-bottom: 0.06em solid $primary-low;
-      padding-bottom: 0.4em;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      .subscribe-title {
-        margin: 0;
-      }
-    }
-
-    .modal-content {
-      padding: .8em .1em;
     }
   }
 }
