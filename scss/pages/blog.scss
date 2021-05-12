@@ -100,7 +100,7 @@ body.blog {
     margin: 1.3em 0 0;
   }
 
-  .title {
+  .topic-title {
     font-size: 1.6rem;
     margin: 0 0 0.4em;
     transition: color 0.2s ease-in-out;
@@ -112,7 +112,7 @@ body.blog {
     flex-direction: column;
   }
 
-  .excerpt {
+  .topic-excerpt {
     max-width: 56em;
     color: $primary-high;
 
@@ -143,12 +143,12 @@ body.blog {
         grid-template-columns: 1fr 1fr;
       }
 
-      .title {
+      .topic-title {
         margin-top: 0;
         font-size: 3.2rem;
       }
 
-      .excerpt p {
+      .topic-excerpt p {
         margin-bottom: 1.5em;
         font-size: 1.7rem;
         line-height: 1.55em;
@@ -175,11 +175,11 @@ body.blog {
   }
 
   @media (max-width: 500px) {
-    .title {
+    .topic-title {
       font-size: 1.9rem;
     }
 
-    .excerpt {
+    .topic-excerpt {
       font-size: 1.2rem;
     }
   }

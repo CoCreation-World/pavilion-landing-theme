@@ -2,10 +2,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
   var $memberList = $('#member-list');
   var $toggleList = $memberList.find('.item-list-toggle');
   var $itemList = $memberList.find('.item-list');
-  var $blog = $('body.blog, body.blog-post');
-  var $articleList = $blog.find(".article-list");
-  var $subscribeModal = $blog.find(".modal.subscribe");
-  var $subscribeBtn = $blog.find(".btn-subscribe");
 
   function handleGroupToggle(group) {
     if (group && group !== 'everyone') {
@@ -22,6 +18,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
     $(e.target).addClass('active');
     handleGroupToggle(e.target.getAttribute("data-group"));
   });
+  
+  var $blog = $('body.blog, body.blog-post');
+  var $subscribeModal = $blog.find(".modal.subscribe");
+  var $subscribeBtn = $blog.find(".btn-subscribe");
 
   $blog.find($subscribeBtn).on('click', function(e) {
     if ($(this).hasClass('user')) {
